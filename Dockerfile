@@ -1,5 +1,5 @@
 FROM        node:6.5
-MAINTAINER  emiliano <emiliano@wework.com>
+MAINTAINER  goliatone <hello@goliatone.com>
 
 #Actually what we want to do is just make libic2 and git available
 RUN \

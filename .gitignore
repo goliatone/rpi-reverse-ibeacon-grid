@@ -127,3 +127,5 @@ src/modules/dashboard/public/admin.html
 src/modules/dashboard/public/animation.html
 src/modules/dashboard/public/bootstrap/
 src/data/*/*.json
+
+docker-compose.yml
