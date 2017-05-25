@@ -14,20 +14,27 @@ const DEFAULTS = {
     }
 };
 
+let _readings = {};
+
 module.exports.init = function(context, config) {
-    let logger = context.getLogger('ble-scanner');
+    let _logger = context.getLogger('ble-scanner');
 
     config = extend({}, DEFAULTS, config);
     let metadata = config.metadata;
 
     return new Promise((resolve, reject)=> {
-        logger.info('We are here...');
-        context.resolve('pubsub').then((pubsub)=> {
-            logger.info('We have pubsub');
+        _logger.info('We are here...');
 
+        context.resolve('pubsub').then((pubsub)=> {
             BLE.on('discover', (beacon) => {
                 let topic = `ww/ble-grid/${beacon.uuid}/${beacon.major}/${beacon.minor}`;
-                logger.info(topic, beacon.rssi);
+
+                if(shouldSkip(topic, beacon)) {
+                    return;
+                }
+
+                _logger.info(topic, beacon.rssi);
+
                 pubsub.publish(topic, {
                     topic,
                     metadata,
@@ -43,12 +50,24 @@ module.exports.init = function(context, config) {
              * uuid + major + minor
              */
             const data = parseBeaconData(config.beacon);
-            logger.info('scann for %s:%s:%s', data.uuid, data.major, data.minor);
-            logger.info('scann for %s:%s:%s', typeof data.uuid, typeof data.major, typeof data.minor);
+
+            _logger.info('scanner setting up BLE reader for: %s:%s:%s', data.uuid, data.major, data.minor);
+
             BLE.startScanning(data.uuid, data.major, data.minor);
         });
     });
 };
+
+function shouldSkip(topic, beacon) {
+    let previous = _readings[topic];
+
+    if(!previous) {
+        _readings[topic] = beacon;
+        return;
+    }
+
+    return previous.rssi === beacon.rssi;
+}
 
 function formatUUID(uuid='') {
     return uuid.toLowerCase().replace(/-/g, '');
