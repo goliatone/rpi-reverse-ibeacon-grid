@@ -1,4 +1,4 @@
-FROM        hypriot/rpi-node:4.8
+FROM        hypriot/rpi-node:6.10
 MAINTAINER  goliatone <hello@goliatone.com>
 
 #Actually what we want to do is just make libic2 and git available
