@@ -5,7 +5,7 @@ services:
     build: .
     image: goliatone/rpi-reverse-ibeacon-grid
     hostname: picon-{{NODE_ENV}}
-    command: dumb-init node index.js
+    command: node index.js
     ports:
       - "{{NODE_REPL_PORT}}:{{NODE_REPL_PORT}}"
     environment:
