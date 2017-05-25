@@ -60,8 +60,6 @@ module.exports.init = function $amqpClient(context, config){
                 return reject(err);
             }
 
-
-
             _logger.info('===> AMQP client CONNECTED');
 
             if(pubsub._buffer.length){

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WeConnect/rpi-reverse-ibeacon-grid.git"
+    "url": "git+https://github.com/goliatone/rpi-reverse-ibeacon-grid.git"
   },
   "author": "Goliatone <hello@goliatone.com> (http://goliatone.com)",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WeConnect/rpi-reverse-ibeacon-grid/issues"
+    "url": "https://github.com/goliatone/rpi-reverse-ibeacon-grid/issues"
   },
-  "homepage": "https://github.com/WeConnect/rpi-reverse-ibeacon-grid#readme",
+  "homepage": "https://github.com/goliatone/rpi-reverse-ibeacon-grid#readme",
   "dependencies": {
     "application-core": "^0.7.14",
     "ascoltatori-lowfat": "^3.1.3",
