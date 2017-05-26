@@ -20,6 +20,6 @@ RUN cp -a /tmp/node_modules /usr/src/app/
 COPY ./src/ /usr/src/app
 
 # REPL_PORT
-EXPOSE 8989
+EXPOSE 8988
 
 CMD ["node", "index.js"]

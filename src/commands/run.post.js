@@ -7,7 +7,7 @@ function RunPostCommand(event) {
     _logger.warn('Post command...');
 
     context.onceRegistered('pubsub', () => {
-        _logger.warn('pubsub active, active')
+        _logger.warn('pubsub active, active');
         context.pubsub.publish('ww/ble-grid/active', {
             id: context.name
         });
