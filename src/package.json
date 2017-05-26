@@ -21,6 +21,7 @@
     "bleacon": "^0.5.1",
     "gextend": "^0.3.0",
     "mqtt": "^2.7.2",
-    "mqtt-match": "^1.0.2"
+    "mqtt-match": "^1.0.2",
+    "uuid": "^3.0.1"
   }
 }
