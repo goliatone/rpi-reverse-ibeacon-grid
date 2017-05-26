@@ -61,9 +61,10 @@ module.exports.init = function(context, config) {
 function shouldSkip(topic, beacon) {
     let previous = _readings[topic];
 
+    _readings[topic] = extend({}, beacon);
+
     if(!previous) {
-        _readings[topic] = beacon;
-        return;
+        return false;
     }
 
     return previous.rssi === beacon.rssi;
