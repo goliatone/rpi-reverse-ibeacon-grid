@@ -8,7 +8,7 @@ RUN \
 WORKDIR /usr/src/app
 
 # Add dumb-init to solve docker's dangling pid 0
-RUN apt-get update && apt-get install -y build-essential g++
+RUN apt-get update && apt-get install -y build-essential g++ bluetooth bluez libbluetooth-dev libudev-dev
 
 #use changes to package.json to force Docker to not use
 #cache. Use docker build --no-cache to force npm install.
